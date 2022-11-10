@@ -84,8 +84,10 @@ class ytPlaylist():
 			sys.argv[2]
 			self.group = []
 			self.group.append(sys.argv[2])
-		except IndexError: 
-			self.group = ['Links Separados!','+55 12 98249-4455']
+		except IndexError:
+			# self.group is a list with name and/or number to send yt playlist links
+			# if will use number MUST BE in country format, ie, for brazilian numbers +55 DDD 99999-9999
+			self.group = ['group name of whatsapp','+55 11 9xxxx-xxxx']
 		self.driver.get('https://web.whatsapp.com')
 		time.sleep(20)
 		for gr in self.group:
@@ -116,7 +118,7 @@ class ytPlaylist():
 
 
 w = ytPlaylist()
-w.mkdir('LINKS_ENVIADOS')
+w.mkdir('LINKS_ENVIADOS')	# LINKS_ENVIADOS is the name folder that you want to create
 w.create_file()
 w.prepareLink()
 w.options('F')
